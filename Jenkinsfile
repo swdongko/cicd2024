@@ -23,7 +23,7 @@ pipeline {
                    ]) {
                    sh '''
                    #This  command will generate an authorization token (Only valid for 1 hour)
-                   json_auth_data="$(printf {} '{ "username": "%s", "password": "%s" }' "${PRISMA_ACCESS_KEY}" "${PRISMA_SECRET_KEY}")"
+                   json_auth_data="$(printf '{}' '{ "username": "%s", "password": "%s" }' "${PRISMA_ACCESS_KEY}" "${PRISMA_SECRET_KEY}")"
 
                    token=$(curl -sSLk -d "$json_auth_data" -H 'content-type: application/json' "$PCE_CONSOLE_URL/api/v1/authenticate" | python3 -c 'import sys, json; print(json.load(sys.stdin)["token"])')
 
