@@ -3,7 +3,7 @@ pipeline {
    environment {
       CONTAINER_NAME = 'swdcontainer2024'
       CONTAINER_TAG = 'latest'
-      PRISMA_API_URL='https://api.prismacloud.io'
+      PRISMA_API_URL= 'https://api.prismacloud.io'
    }
     stages { 
         stage('Build Container') {
@@ -17,9 +17,9 @@ pipeline {
          stage('Image Scan') {
           steps {
                 withCredentials([
-                   string(credentialsId: 'PCE_CONSOLE_URL', variable: 'https://app.prismacloud.io/'),
-                   string(credentialsId: 'PRISMA_ACCESS_KEY', variable: '886b5a82-4d83-4771-8bad-d7cc1a93a4dd'),
-                  string(credentialsId: 'PRISMA_SECRET_KEY', variable: 'WkHBT7PfJdoNlg6ZU6+kvGj6y6I=')
+                   string(credentialsId: 'PCE_CONSOLE_URL', variable: 'PCE_CONSOLE_URL'),
+                   string(credentialsId: 'PRISMA_ACCESS_KEY', variable: 'PRISMA_ACCESS_KEY'),
+                  string(credentialsId: 'PRISMA_SECRET_KEY', variable: 'PRISMA_SECRET_KEY')
                    ]) {
                    sh '''
                    #This  command will generate an authorization token (Only valid for 1 hour)
