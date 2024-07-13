@@ -27,7 +27,7 @@ pipeline {
 
                    token=$(curl -sSLk -d "$json_auth_data" -H 'content-type: application/json' "https://us-east1.cloud.twistlock.com/us-1-111573457/api/v1/authenticate" | python3 -c 'import sys, json; print(json.load(sys.stdin)["token"])')
 
-                  /home/ubuntu/twistcli images scan --address https://us-east1.cloud.twistlock.com/us-1-111573457 --token=$token --details $CONTAINER_NAME:$CONTAINER_TAG
+                   sudo /home/ubuntu/twistcli images scan --address https://us-east1.cloud.twistlock.com/us-1-111573457 --token=$token --details $CONTAINER_NAME:$CONTAINER_TAG
                    '''
                 }
              }
