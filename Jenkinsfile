@@ -36,8 +36,8 @@ CONSOLE_pipeline {
        stage('Secret and IaC Scan') {
           steps {
                 withCredentials([
-                   string(credentialsId: 'PRISMA_ACCESS_KEY', variable: '886b5a82-4d83-4771-8bad-d7cc1a93a4dd'),
-                   string(credentialsId: 'PRISMA_SECRET_KEY', variable: 'WkHBT7PfJdoNlg6ZU6+kvGj6y6I=')
+                   string(credentialsId: 'PRISMA_ACCESS_KEY', variable: 'PRISMA_ACCESS_KEY'),
+                   string(credentialsId: 'PRISMA_SECRET_KEY', variable: variable: 'PRISMA_SECRET_KEY')
                    ]) {
                       script{
                         docker.image('bridgecrew/checkov:latest').inside("--entrypoint=''") {
