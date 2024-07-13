@@ -37,7 +37,7 @@ CONSOLE_pipeline {
           steps {
                 withCredentials([
                    string(credentialsId: 'PRISMA_ACCESS_KEY', variable: 'PRISMA_ACCESS_KEY'),
-                   string(credentialsId: 'PRISMA_SECRET_KEY', variable: variable: 'PRISMA_SECRET_KEY')
+                   string(credentialsId: 'PRISMA_SECRET_KEY', variable: 'PRISMA_SECRET_KEY')
                    ]) {
                       script{
                         docker.image('bridgecrew/checkov:latest').inside("--entrypoint=''") {
