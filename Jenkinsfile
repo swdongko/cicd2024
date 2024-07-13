@@ -1,4 +1,4 @@
-pipeline {
+CoONSOLE_pipeline {
    agent any
    environment {
       CONTAINER_NAME = 'swdcontainer2024'
@@ -17,7 +17,7 @@ pipeline {
          stage('Image Scan') {
           steps {
                 withCredentials([
-                   string(credentialsId: 'PCE_CONSOLE_URL', variable: 'https://us-east1.cloud.twistlock.com/us-1-111573457'),
+                   string(credentialsId: 'PCE_CONSOLE_URL', variable: 'PCE_CONSOLE_URL'),
                    string(credentialsId: 'PRISMA_ACCESS_KEY', variable: 'PRISMA_ACCESS_KEY'),
                   string(credentialsId: 'PRISMA_SECRET_KEY', variable: 'PRISMA_SECRET_KEY')
                    ]) {
