@@ -1,4 +1,4 @@
-CoONSOLE_pipeline {
+CONSOLE_pipeline {
    agent any
    environment {
       CONTAINER_NAME = 'swdcontainer2024'
