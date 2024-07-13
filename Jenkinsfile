@@ -25,7 +25,7 @@ pipeline {
                    #This  command will generate an authorization token (Only valid for 1 hour)
                    json_auth_data="$(printf '{ "username": "%s", "password": "%s" }' "${PRISMA_ACCESS_KEY}" "${PRISMA_SECRET_KEY}")"
 
-                   token=$(curl -sSLk -d "$json_auth_data" -H 'content-type: application/json' "https://app.prismacloud.io/api/v1/authenticate" | python3 -c 'import sys, json; print(json.load(sys.stdin)["token"])')
+                   token=$(curl -sSLk -d "$json_auth_data" -H 'content-type: application/json' "https://api.prismacloud.io/api/v1/authenticate" | python3 -c 'import sys, json; print(json.load(sys.stdin)["token"])')
 
                    sudo /home/ubuntu/twistcli images scan --address https://us-east1.cloud.twistlock.com/us-1-111573457 --token=$token --details $CONTAINER_NAME:$CONTAINER_TAG
                    '''
